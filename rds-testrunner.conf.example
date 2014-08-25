@@ -1,3 +1,8 @@
+aws {
+  key = "AWS_ACCESS_KEY_ID"
+  secret = "AWS_SECRET_ACCESS_KEY"
+}
+
 notify {
   token = "hipchat token"
   room = "room id or room name"

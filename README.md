@@ -40,11 +40,14 @@ Download Binary.
 
 ## Configuration
 
-First, set env ,`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
-
-Second, Create `/etc/rds-testrunner.conf` or `$HOME/.rtrrc` config file.
+Create `/etc/rds-testrunner.conf` or `$HOME/.rtrrc` config file.
 
 ```
+aws {
+  key = "AWS_ACCESS_KEY_ID"
+  secret = "AWS_SECRET_ACCESS_KEY"
+}
+
 resource "default" {
   instance = "crocos-test-db"
   region = "ap-northeast-1"
@@ -58,7 +61,9 @@ resource "other..." {
   ..
 ```
 
-`default` is used default resource at `-r` parameter not specified.
+`aws` config is AWS API Credentials. You can use ENV `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY instead of this config.
+
+`resource "default"` is used default resource at `-r` parameter not specified.
 
 see other configuration: `rds-testrunner.conf.example` and `warmul.sql.example`
 

@@ -12,6 +12,11 @@ import (
 const RTRRC = "rtrrc"
 const DEFALULT_CONFIG = "/etc/rds-testrunner.conf"
 
+type AWSCredential struct {
+	Key    string
+	Secret string
+}
+
 type Resource struct {
 	InstanceIdentifier string
 	InstanceRegion     string
@@ -56,6 +61,32 @@ func LoadConfig() (config *hcl.Object, err error) {
 	}
 
 	config, err = parser.Parse(string(data))
+
+	return
+}
+
+func GetAwsCredential() (auth AWSCredential, err error) {
+	config, err := LoadConfig()
+	if err != nil {
+		return
+	}
+
+	aws := config.Get("aws", false)
+	if aws == nil {
+		return
+	}
+
+	if aws.Get("key", false) != nil {
+		auth.Key = aws.Get("key", false).Value.(string)
+	} else {
+		err = fmt.Errorf("key is require in aws config")
+	}
+
+	if aws.Get("secret", false) != nil {
+		auth.Secret = aws.Get("secret", false).Value.(string)
+	} else {
+		err = fmt.Errorf("secret is require in aws config")
+	}
 
 	return
 }

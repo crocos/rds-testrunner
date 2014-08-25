@@ -38,7 +38,9 @@ func realMain() (exitCode int, err error) {
 		args = append(args, arg)
 	}
 
-	auth, err := aws.GetAuth("", "")
+	credential, err := config.GetAwsCredential()
+
+	auth, err := aws.GetAuth(credential.Key, credential.Secret)
 	if err != nil {
 		exitCode = 1
 		return
