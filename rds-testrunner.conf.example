@@ -1,0 +1,21 @@
+notify {
+  token = "hipchat token"
+  room = "room id or room name"
+  name = "(optional) hipchat notify name"
+}
+
+resource "default" {
+  instance = "default RDS identifier"
+  region = "default region"
+  user = "db access user"
+  password = "db password"
+  warmup = "(optional) db warmup sql file path."
+}
+
+resource "otherresource" {
+  instance = "foo-database"
+  region = "ap-northeast-1"
+  user = "yudoufu"
+  password = "barpassword"
+  warmup = "warmup.sql.example"
+}

@@ -21,3 +21,9 @@ _testmain.go
 
 *.exe
 *.test
+
+# user setting
+rds-testrunner
+Godeps/Readme
+Godeps/_workspace
+

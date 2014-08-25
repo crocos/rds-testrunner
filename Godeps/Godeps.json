@@ -1,0 +1,40 @@
+{
+	"ImportPath": "github.com/crocos/rds-testrunner",
+	"GoVersion": "go1.3",
+	"Deps": [
+		{
+			"ImportPath": "github.com/andybons/hipchat",
+			"Rev": "08bf65eade11bf8d584e933d01a35c2799c36ff4"
+		},
+		{
+			"ImportPath": "github.com/go-sql-driver/mysql",
+			"Comment": "v1.2-8-g0b00042",
+			"Rev": "0b000424e546f305e0bd47856d5fcb904c1a0eb4"
+		},
+		{
+			"ImportPath": "github.com/hashicorp/hcl",
+			"Rev": "0cb0fcb714f4589f8042bf905253284870ede4e9"
+		},
+		{
+			"ImportPath": "github.com/hashicorp/terraform/helper/multierror",
+			"Comment": "v0.1.1-29-g2e777d8",
+			"Rev": "2e777d87a200c968e705d733c8475acbe8c182cf"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/cli",
+			"Rev": "bfacda5ba006a32b10ddfe2abad56c11661573eb"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/colorstring",
+			"Rev": "15fc698eaae194ff160846daf77922a45b9290a7"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/goamz/aws",
+			"Rev": "cab49b43cfd7846155d5a8dfca5136b9e0c2c6d2"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/goamz/rds",
+			"Rev": "cab49b43cfd7846155d5a8dfca5136b9e0c2c6d2"
+		}
+	]
+}
