@@ -196,7 +196,7 @@ func (c *OpenCommand) CreateInstanceFromSnapshot(snapshot *rds.DBSnapshot) (test
 }
 
 func (c *OpenCommand) WaitTestInstanceAvailable(instanceName string) bool {
-	c.Ui.Output("waiting few minute running status.")
+	c.Ui.Output("waiting few minutes running status.")
 	loop := 0
 	for {
 		i, err := c.GetInstances(instanceName)
@@ -213,7 +213,7 @@ func (c *OpenCommand) WaitTestInstanceAvailable(instanceName string) bool {
 
 		loop++
 		if loop > WaitTimeoutPeriod {
-			fmt.Println(colorstring.Color("[red]wati timeout"))
+			fmt.Println(colorstring.Color("[red]wait timeout"))
 			return false
 		}
 	}
