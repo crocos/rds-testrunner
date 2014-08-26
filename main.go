@@ -1,8 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
+	"sort"
+	"strings"
 
 	"github.com/crocos/rds-testrunner/command"
 	"github.com/crocos/rds-testrunner/config"
@@ -105,6 +108,47 @@ func realMain() (exitCode int, err error) {
 		},
 	}
 
+	c.HelpFunc = helpFunc(args[0])
 	exitCode, err = c.Run()
 	return
+}
+
+func helpFunc(app string) cli.HelpFunc {
+	return func(commands map[string]cli.CommandFactory) string {
+		help := fmt.Sprintf("Usage: %s [--version] [--help] [-r] <command> [<command args>]\n\n", app)
+		help += "DB mirroring and Query execution measurement tool.\n\n"
+		help += "Available commands are:\n"
+
+		keys := make([]string, 0, len(commands))
+		maxKeyLen := 0
+		for key, _ := range commands {
+			if len(key) > maxKeyLen {
+				maxKeyLen = len(key)
+			}
+
+			keys = append(keys, key)
+		}
+		sort.Strings(keys)
+
+		for _, key := range keys {
+			commandFunc, ok := commands[key]
+			if !ok {
+				panic("command not found: " + key)
+			}
+
+			command, err := commandFunc()
+			if err != nil {
+				log.Printf("[ERR] cli: Command '%s' failed to load: %s", key, err)
+				continue
+			}
+
+			key = fmt.Sprintf("%s%s", key, strings.Repeat(" ", maxKeyLen-len(key)))
+			help += fmt.Sprintf("    %s    %s\n", key, command.Synopsis())
+		}
+
+		help += "\nOptions:\n"
+		help += fmt.Sprintf("    -r <resource>    Choice 'resource' name on your config file. if not set, use 'default'\n")
+
+		return help
+	}
 }

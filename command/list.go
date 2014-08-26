@@ -48,7 +48,7 @@ func (c *ListCommand) realRun(args []string) (exitCode int, err error) {
 }
 
 func (c *ListCommand) Help() string {
-	return `usage: rds-testrunner list
+	return `Usage: rds-testrunner list
 
 List available Test DB instances.
 `

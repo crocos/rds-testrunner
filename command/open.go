@@ -124,7 +124,7 @@ func (c *OpenCommand) realRun(args []string) (exitCode int, err error) {
 
 		c.Notifier.Info(fmt.Sprintf("@%s Finished Query measurement.\nEndPoint: %s\n\n%s", os.Getenv("USER"), endpoint, message))
 	} else {
-		c.Notifier.Info(fmt.Sprintf("@%s Finished mirror DB setup.", os.Getenv("USER")))
+		c.Notifier.Info(fmt.Sprintf("@%s Finished mirror DB setup. EndPoint: %s", os.Getenv("USER"), endpoint))
 	}
 
 	c.Ui.Output("All test instance setup Finished.")
@@ -135,7 +135,7 @@ func (c *OpenCommand) realRun(args []string) (exitCode int, err error) {
 }
 
 func (c *OpenCommand) Help() string {
-	return `usage: rds-testrunner open [<args>]
+	return `Usage: rds-testrunner open [<args>]
 
 Create Test DB instance.
 

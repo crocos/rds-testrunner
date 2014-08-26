@@ -72,7 +72,7 @@ func (c *CloseCommand) realRun(args []string) (exitCode int, err error) {
 }
 
 func (c *CloseCommand) Help() string {
-	return `usage: rds-testrunner close
+	return `Usage: rds-testrunner close
 
 Delete all Test DB instances.
 `
