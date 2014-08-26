@@ -16,6 +16,8 @@ import (
 	"github.com/mitchellh/goamz/rds"
 )
 
+const VERSION = "0.1.0"
+
 func main() {
 	exitCode, err := realMain()
 	if err != nil {
@@ -67,7 +69,7 @@ func realMain() (exitCode int, err error) {
 	client := rds.New(auth, aws.Regions[resourceData.InstanceRegion])
 
 	// get cli
-	c := cli.NewCLI("rds-testrunner", "0.1.0")
+	c := cli.NewCLI("rds-testrunner", VERSION)
 	c.Args = args[1:]
 
 	// get output ui
@@ -80,7 +82,7 @@ func realMain() (exitCode int, err error) {
 	}
 
 	// get notifier
-	notifier := notify.NewHipChatNotifier(notifyConfig)
+	notifier := notify.NewNotifier(notifyConfig)
 
 	// create command utils
 	base := command.Base{

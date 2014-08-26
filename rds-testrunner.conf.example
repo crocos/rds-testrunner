@@ -4,6 +4,7 @@ aws {
 }
 
 notify {
+  type = "hipchat"
   token = "hipchat token"
   room = "room id or room name"
   name = "(optional) hipchat notify name"

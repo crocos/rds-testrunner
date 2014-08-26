@@ -26,6 +26,7 @@ type Resource struct {
 }
 
 type NotifyConfig struct {
+	Type  string
 	Token string
 	Name  string
 	Room  string
@@ -155,6 +156,13 @@ func GetNotifyConfig() (notifyConfig NotifyConfig, err error) {
 	notify := config.Get("notify", false)
 	if notify == nil {
 		return // notify not used.
+	}
+
+	if notify.Get("type", false) != nil {
+		notifyConfig.Type = notify.Get("type", false).Value.(string)
+	} else {
+		err = fmt.Errorf("notify 'type' is required.")
+		return
 	}
 
 	if notify.Get("token", false) != nil {

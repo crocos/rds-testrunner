@@ -10,12 +10,12 @@ type HipChatNotifier struct {
 	Client hipchat.Client
 }
 
-func NewHipChatNotifier(notifyConfig config.NotifyConfig) (notifier HipChatNotifier) {
+func NewHipChatNotifier(notifyConfig config.NotifyConfig) (notifier NotifierInterface) {
 	client := hipchat.Client{
 		AuthToken: notifyConfig.Token,
 	}
 
-	notifier = HipChatNotifier{
+	notifier = &HipChatNotifier{
 		Config: notifyConfig,
 		Client: client,
 	}

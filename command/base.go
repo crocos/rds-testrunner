@@ -20,7 +20,7 @@ type Base struct {
 	Ui       cli.Ui
 	Resource config.Resource
 	Client   *rds.Rds
-	Notifier notify.HipChatNotifier
+	Notifier notify.NotifierInterface
 }
 
 func (c *Base) GetTestInstancePrefix() (prefix string) {

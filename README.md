@@ -43,11 +43,6 @@ Download Binary.
 Create `/etc/rds-testrunner.conf` or `$HOME/.rtrrc` config file.
 
 ```
-aws {
-  key = "AWS_ACCESS_KEY_ID"
-  secret = "AWS_SECRET_ACCESS_KEY"
-}
-
 resource "default" {
   instance = "crocos-test-db"
   region = "ap-northeast-1"
@@ -59,16 +54,32 @@ resource "default" {
 
 resource "other..." {
   ..
+
+aws {
+  key = "AWS_ACCESS_KEY_ID"
+  secret = "AWS_SECRET_ACCESS_KEY"
+}
+
+notify {
+  type = "hipchat"
+  token = "hipchat token"
+  room = "notify room id or name"
+}
+
+
 ```
 
-`aws` config is AWS API Credentials. You can use ENV `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY instead of this config.
 
-`resource "default"` is used default resource at `-r` parameter not specified.
+(required) `resource "default"` is used default resource at `-r` parameter not specified.
+
+(optional) `aws` config is AWS API Credentials.
+You can use ENV `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY instead of this config.
+
+(optional) `notify` config is notify finished execution. (Now, notify `type` can set only `hipchat`.)
 
 see other configuration: `rds-testrunner.conf.example` and `warmul.sql.example`
 
 
 Config style adopted [HCL](https://github.com/hashicorp/hcl).
 You can choice hcl or json style as you like.
-
 
