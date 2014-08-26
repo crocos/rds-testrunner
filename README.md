@@ -18,10 +18,16 @@ It is used default resource. If you want useing other resource:
 rds-testrunner open -r "fooresource" -q foo-test-query.sql
 ```
 
-see more: `rds-testrunner open --help`
+And If you want to change instance type(default: `db.m3.medium`):
+
+```
+rds-testrunner open -t db.m3.large -q foo-test-query.sql
+```
+
+see more: `rds-testrunner --help` and `rds-testrunner open --help`
 
 
-* Delete DB
+* Delete end of use DB's
 
 ```
 rds-testrunner close
@@ -35,7 +41,7 @@ rds-testrunner list
 
 ## Installation
 
-Download Binary.
+Download Binary. [Linux]() [Mac]()
 
 
 ## Configuration
@@ -82,4 +88,26 @@ see other configuration: `rds-testrunner.conf.example` and `warmul.sql.example`
 
 Config style adopted [HCL](https://github.com/hashicorp/hcl).
 You can choice hcl or json style as you like.
+
+
+## Development
+
+Dependency packages get by `godep`
+
+```
+godep get
+```
+
+and build follow:
+
+```
+go build
+```
+
+or
+
+```
+gox -output="build/{{.OS}}/{{.Arch}}/{{.Dir}}"
+```
+
 

@@ -177,6 +177,7 @@ func (c *OpenCommand) CreateInstanceFromSnapshot(snapshot *rds.DBSnapshot) (test
 	testInstanceName = c.makeNewTestInstanceName()
 
 	c.Ui.Output(colorstring.Color(fmt.Sprintf("Create: [bold][green]%s", testInstanceName)))
+	c.Ui.Output(colorstring.Color(fmt.Sprintf("instance type: [bold][green]%s", c.instanceType)))
 
 	options := rds.RestoreDBInstanceFromDBSnapshot{
 		DBInstanceIdentifier: testInstanceName,

@@ -23,5 +23,5 @@ resource "otherresource" {
   region = "ap-northeast-1"
   user = "yudoufu"
   password = "barpassword"
-  warmup = "warmup.sql.example"
+  warmup = "/path/to/warmup.sql"
 }
