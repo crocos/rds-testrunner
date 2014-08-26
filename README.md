@@ -41,7 +41,7 @@ rds-testrunner list
 
 ## Installation
 
-Download Binary. [Linux]() [Mac]()
+Download [Binary](https://github.com/crocos/rds-testrunner/releases).
 
 
 ## Configuration

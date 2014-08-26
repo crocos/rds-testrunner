@@ -58,7 +58,7 @@ rds-testrunner list
 
 ## Install
 
-バイナリをDownloadしてください。 [Linux]() [Mac]()
+バイナリを[Download](https://github.com/crocos/rds-testrunner/releases)してください。
 適当にpathの通ったところに`rds-testrunner`のバイナリを置けば利用できます。
 
 
