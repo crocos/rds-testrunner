@@ -1,7 +1,7 @@
 # RDS TestRunner
 
 This is Query execution time measurement tool.
-It is running query and auto-warmup for created mirror DB from RDS Snapshot.
+It is running query and auto-warmup for created mirror DB from RDS(MySQL) Snapshot.
 
 ## How to use
 

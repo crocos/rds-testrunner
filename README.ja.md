@@ -1,6 +1,7 @@
 # RDS TestRunner
 
 RDS TestRunnerは、RDSの最新SnapshotからDBを複製し、それに対して各種クエリを実行し、完了までの時間を計測します。
+利用可能なRDSのEngineは、MySQLのみです。
 
 もう少し細かく言うと、以下の作業をします。
 
